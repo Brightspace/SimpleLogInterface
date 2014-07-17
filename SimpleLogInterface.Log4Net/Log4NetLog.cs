@@ -10,52 +10,52 @@ namespace SimpleLogInterface.Log4Net {
 			m_log = log;
 		}
 
-		void ILog.Debug( Func<object> message, Exception exception ) {
+		void ILog.Debug( Func<object> messageBuilder, Exception exception ) {
 
 			Log(
 				() => m_log.IsDebugEnabled,
 				( m, e ) => m_log.Debug( m, e ),
-				message,
+				messageBuilder,
 				exception
 			);
 		}
 
-		void ILog.Info( Func<object> message, Exception exception ) {
+		void ILog.Info( Func<object> messageBuilder, Exception exception ) {
 
 			Log(
 				() => m_log.IsInfoEnabled,
 				( m, e ) => m_log.Info( m, e ),
-				message,
+				messageBuilder,
 				exception
 			);
 		}
 
-		void ILog.Warn( Func<object> message, Exception exception ) {
+		void ILog.Warn( Func<object> messageBuilder, Exception exception ) {
 
 			Log(
 				() => m_log.IsWarnEnabled,
 				( m, e ) => m_log.Warn( m, e ),
-				message,
+				messageBuilder,
 				exception
 			);
 		}
 
-		void ILog.Error( Func<object> message, Exception exception ) {
+		void ILog.Error( Func<object> messageBuilder, Exception exception ) {
 
 			Log(
 				() => m_log.IsErrorEnabled,
 				( m, e ) => m_log.Error( m, e ),
-				message,
+				messageBuilder,
 				exception
 			);
 		}
 
-		void ILog.Fatal( Func<object> message, Exception exception ) {
+		void ILog.Fatal( Func<object> messageBuilder, Exception exception ) {
 
 			Log(
 				() => m_log.IsFatalEnabled,
 				( m, e ) => m_log.Fatal( m, e ),
-				message,
+				messageBuilder,
 				exception
 			);
 		}
@@ -63,7 +63,7 @@ namespace SimpleLogInterface.Log4Net {
 		private void Log(
 				Func<bool> enabledCheck,
 				Action<object, Exception> logger,
-				Func<object> messageGetter,
+				Func<object> messageBuilder,
 				Exception exception
 			) {
 
@@ -71,7 +71,7 @@ namespace SimpleLogInterface.Log4Net {
 				bool enabled = enabledCheck();
 				if( enabled ) {
 
-					object message = messageGetter();
+					object message = messageBuilder();
 					logger( message, exception );
 				}
 
