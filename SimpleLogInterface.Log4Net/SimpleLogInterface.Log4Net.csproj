@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Log4NetLog.cs" />
     <Compile Include="Log4NetLogProvider.cs" />
-    <Compile Include="Log4NetSystem.cs" />
+    <Compile Include="Log4NetLogSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

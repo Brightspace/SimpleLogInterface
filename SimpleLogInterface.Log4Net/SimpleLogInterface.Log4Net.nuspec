@@ -11,5 +11,8 @@
 		<description>$description$</description>
 		<copyright>Copyright 2014</copyright>
 		<tags>Logging log4net</tags>
+		<dependencies>
+			<dependency id="SimpleLogInterface" version="1.0.0" />
+		</dependencies>
 	</metadata>
 </package>

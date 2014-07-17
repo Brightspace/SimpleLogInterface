@@ -4,7 +4,7 @@ using log4net;
 
 namespace SimpleLogInterface.Log4Net {
 
-	public static class Log4NetSystem {
+	public static class Log4NetLogSystem {
 
 		/// <summary>
 		/// Creates a log system for the default log4net repository.
