@@ -5,27 +5,27 @@ namespace SimpleLogInterface {
 	public interface ILog {
 
 		void Debug(
-				Func<object> message,
+				Func<object> messageBuilder,
 				Exception exception = null
 			);
 
 		void Info(
-				Func<object> message,
+				Func<object> messageBuilder,
 				Exception exception = null
 			);
 
 		void Warn(
-				Func<object> message,
+				Func<object> messageBuilder,
 				Exception exception = null
 			);
 
 		void Error(
-				Func<object> message,
+				Func<object> messageBuilder,
 				Exception exception = null
 			);
 
 		void Fatal(
-				Func<object> message,
+				Func<object> messageBuilder,
 				Exception exception = null
 			);
 
