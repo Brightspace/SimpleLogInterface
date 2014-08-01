@@ -41,6 +41,8 @@
     <Compile Include="ILogProvider.cs" />
     <Compile Include="ILogProviderExtensions.cs" />
     <Compile Include="ILogSystem.cs" />
+    <Compile Include="NullLog.cs" />
+    <Compile Include="NullLogProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
