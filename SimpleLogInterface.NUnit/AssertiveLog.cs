@@ -6,15 +6,6 @@ namespace SimpleLogInterface.NUnit {
 
 	public sealed class AssertiveLog : ILog {
 
-		[Flags]
-		public enum Levels {
-			Debug,
-			Info,
-			Warn,
-			Error,
-			Fatal
-		}
-
 		/// <summary>
 		/// Allows Debug and Info messages.
 		/// </summary>

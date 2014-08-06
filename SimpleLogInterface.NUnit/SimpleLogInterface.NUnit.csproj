@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertiveLog.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Levels.cs" />
+    <Compile Include="MockLogRecord.cs" />
+    <Compile Include="MockLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
