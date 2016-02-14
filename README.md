@@ -1,5 +1,7 @@
 # SimpleLogInterface
 
+[![Build status](https://ci.appveyor.com/api/projects/status/t0tsyqo49tvx64af/branch/master?svg=true)](https://ci.appveyor.com/project/Brightspace/simpleloginterface/branch/master)
+
 A clean and simple logging interface intended to be logging system independent.
 
 The goal was to have a logging interface which did not promote mixing context information
