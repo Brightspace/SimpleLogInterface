@@ -3,22 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface", "SimpleLogInterface\SimpleLogInterface.csproj", "{72A4823A-3B14-4CE7-9E77-FB719D781459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface", "src\SimpleLogInterface\SimpleLogInterface.csproj", "{72A4823A-3B14-4CE7-9E77-FB719D781459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface.Log4Net", "SimpleLogInterface.Log4Net\SimpleLogInterface.Log4Net.csproj", "{A214283D-36E2-485D-8FEF-E06402774761}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface.Log4Net", "src\SimpleLogInterface.Log4Net\SimpleLogInterface.Log4Net.csproj", "{A214283D-36E2-485D-8FEF-E06402774761}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{743B759F-BF82-4632-A5E3-02328DA26592}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68513D35-8D76-49A3-8BD2-8DB1DD7066D9}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface.NUnit", "SimpleLogInterface.NUnit\SimpleLogInterface.NUnit.csproj", "{D6BFAD57-33CF-4556-9524-C2DF5E6A0438}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogInterface.NUnit", "src\SimpleLogInterface.NUnit\SimpleLogInterface.NUnit.csproj", "{D6BFAD57-33CF-4556-9524-C2DF5E6A0438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
