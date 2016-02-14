@@ -1,6 +1,7 @@
 # SimpleLogInterface
 
 [![Build status](https://ci.appveyor.com/api/projects/status/t0tsyqo49tvx64af/branch/master?svg=true)](https://ci.appveyor.com/project/Brightspace/simpleloginterface/branch/master)
+[![NuGet](https://img.shields.io/nuget/dt/SimpleLogInterface.svg)](https://www.nuget.org/packages/SimpleLogInterface)
 
 A clean and simple logging interface intended to be logging system independent.
 
