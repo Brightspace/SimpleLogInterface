@@ -7,7 +7,7 @@ env:
 
 jobs:
   Acceptance:
-    runs-on: [self-hosted, Windows, PerOrg, AWS]
+    runs-on: windows-latest
     steps:
       - uses: Brightspace/third-party-actions@actions/checkout
       - name: Run Windows Preflight

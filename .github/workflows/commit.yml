@@ -13,7 +13,7 @@ env:
 
 jobs:
   Package:
-    runs-on: [self-hosted, Windows, PerOrg, AWS]
+    runs-on: windows-latest
     steps:
       - uses: Brightspace/third-party-actions@actions/checkout
       - uses: Brightspace/codeartifact-actions/nuget/add-source@v1.0.0
