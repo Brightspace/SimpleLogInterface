@@ -46,6 +46,9 @@
     <Compile Include="Log4NetLogSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup Condition="Exists('$(SolutionDir)\src\CommonAssemblyInfo.cs')">
+    <Compile Include="$(SolutionDir)\src\CommonAssemblyInfo.cs" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleLogInterface\SimpleLogInterface.csproj">
       <Project>{72a4823a-3b14-4ce7-9e77-fb719d781459}</Project>

@@ -1,0 +1,25 @@
+name: "Commit"
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+  BUILD_NUMBER: ${{ github.run_number }}
+
+jobs:
+  Package:
+    runs-on: [self-hosted, Windows, PerOrg, AWS]
+    steps:
+      - uses: Brightspace/third-party-actions@actions/checkout
+      - uses: Brightspace/codeartifact-actions/nuget/add-source@v1.0.0
+        with:
+          nuget-config-path: ./.nuget/NuGet.Config
+      - name: Run Windows Build, Package and Publish
+        run: |
+          nant publish `
+            -D:BUILD.NUMBER=$env:BUILD_NUMBER

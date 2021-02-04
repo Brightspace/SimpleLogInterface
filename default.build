@@ -1,0 +1,95 @@
+<project default="package">
+	<property name="ROOT.DIR" value="${project::get-base-directory()}" />
+	<property name="SRC.DIR.NAME" value="src" />
+	<property name="SRC.DIR" value="${ROOT.DIR}\${SRC.DIR.NAME}" />
+	<property name="PACKAGES.DIR.NAME" value="packages" />
+	<property name="PACKAGES.DIR" value="${SRC.DIR}\${PACKAGES.DIR.NAME}" />
+	<property name="OUTPUT.DIR" value="${ROOT.DIR}\output" />
+
+	<property name="BUILD.NUMBER" value="0" unless="${ property::exists( 'BUILD.NUMBER' ) }" />
+	<loadfile file="${ROOT.DIR + '\versionPrefix.txt'}" property="VERSION.PREFIX" unless="${property::exists('VERSION.PREFIX')}" />
+	<property name="VERSION.PREFIX" value="${string::trim(VERSION.PREFIX)}" />
+
+	<property name="VERSION" value="${VERSION.PREFIX}.${BUILD.NUMBER}"/>
+
+	<property name="year" value="${datetime::get-year( datetime::now() )}" />
+
+	<target name="clean">
+		<delete dir="${OUTPUT.DIR}" />
+	</target>
+
+	<target name="build" depends="clean set-version">
+		<exec program="msbuild">
+			<arg file="${ROOT.DIR}\SimpleLogInterface.sln" />
+			<arg value="/t:Rebuild" />
+			<arg value="/v:m" />
+		</exec>
+	</target>
+
+	<target name="set-version" >
+		<echo file="${SRC.DIR}\CommonAssemblyInfo.cs">
+			using System.Reflection;
+			using System.Runtime.CompilerServices;
+			using System.Runtime.InteropServices;
+
+			[assembly: AssemblyVersionAttribute("${VERSION}")]
+			[assembly: AssemblyFileVersionAttribute("${VERSION}")]
+			[assembly: AssemblyCopyrightAttribute("Copyright &#xa9; Desire2Learn ${year}")]
+		</echo>
+	</target>
+
+	<target name="package" depends="build">
+		<mkdir dir="${OUTPUT.DIR}" />
+
+		<exec program="nuget">
+			<arg line="pack -NonInteractive" />
+			<arg file="${SRC.DIR}\SimpleLogInterface\SimpleLogInterface.csproj" />
+			<arg line="-OutputDirectory ${OUTPUT.DIR}" />
+			<arg line="-Version ${VERSION}" />
+			<arg line="-Properties year=${year}" />
+		</exec>
+
+		<exec program="nuget">
+			<arg line="pack -NonInteractive" />
+			<arg file="${SRC.DIR}\SimpleLogInterface.Log4Net\SimpleLogInterface.Log4Net.csproj" />
+			<arg line="-OutputDirectory ${OUTPUT.DIR}" />
+			<arg line="-Version ${VERSION}" />
+			<arg line="-Properties year=${year}" />
+		</exec>
+
+		<exec program="nuget">
+			<arg line="pack -NonInteractive" />
+			<arg file="${SRC.DIR}\SimpleLogInterface.NUnit\SimpleLogInterface.NUnit.csproj" />
+			<arg line="-OutputDirectory ${OUTPUT.DIR}" />
+			<arg line="-Version ${VERSION}" />
+			<arg line="-Properties year=${year}" />
+		</exec>
+	</target>
+
+	<target name="publish" depends="package" >
+		<exec program="nuget">
+			<arg value="push" />
+			<arg value="${OUTPUT.DIR}\SimpleLogInterface.${VERSION}.nupkg" />
+			<arg line="-Source d2l/private" />
+			<arg line="-ApiKey aws" />
+			<arg value="-NonInteractive" />
+		</exec>
+
+		<exec program="nuget">
+			<arg value="push" />
+			<arg value="${OUTPUT.DIR}\SimpleLogInterface.Log4Net.${VERSION}.nupkg" />
+			<arg line="-Source d2l/private" />
+			<arg line="-ApiKey aws" />
+			<arg value="-NonInteractive" />
+		</exec>
+
+		<exec program="nuget">
+			<arg value="push" />
+			<arg value="${OUTPUT.DIR}\SimpleLogInterface.NUNit.${VERSION}.nupkg" />
+			<arg line="-Source d2l/private" />
+			<arg line="-ApiKey aws" />
+			<arg value="-NonInteractive" />
+		</exec>
+	</target>
+
+</project>

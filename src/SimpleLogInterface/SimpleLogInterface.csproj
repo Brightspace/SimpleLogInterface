@@ -46,6 +46,9 @@
     <Compile Include="NullLogProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup Condition="Exists('$(SolutionDir)\src\CommonAssemblyInfo.cs')">
+    <Compile Include="$(SolutionDir)\src\CommonAssemblyInfo.cs" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="SimpleLogInterface.nuspec" />
   </ItemGroup>

@@ -1,0 +1,21 @@
+language/csharp:
+- '**/*.cs'
+- '**/*.csproj'
+
+language/js:
+- '**/*.js'
+- '**/package.json*'
+- '**/*.ts'
+
+language/sql:
+- '**/*.sql'
+
+language/powershell:
+- '**/*.ps1'
+- '**/*.psm1'
+
+area/github-actions:
+- '.github/workflows/**'
+
+area/custom:
+- 'src/lib/custom/**'
