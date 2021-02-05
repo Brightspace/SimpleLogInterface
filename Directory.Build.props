@@ -1,0 +1,27 @@
+<!--
+	If you edit this file edit the version in build and restart VS.
+
+	You will also need to delete .vs/ folders because of a caching bug:
+		https://github.com/dotnet/project-system/issues/2888
+
+	See includes/cleanup-for-vs-cache-bug.include for how this was done last time.
+-->
+<Project>
+	<Import Project="VersionInfo.props" />
+
+	<PropertyGroup>
+		<Deterministic>true</Deterministic>
+		<LangVersion>9.0</LangVersion>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>D2L Corporation</Authors>
+		<Copyright>Copyright © 2021</Copyright>
+		<PackageProjectUrl>https://github.com/Brightspace/SimpleLogInterface</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Brightspace/SimpleLogInterface</RepositoryUrl>
+	</PropertyGroup>
+
+</Project>
