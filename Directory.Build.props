@@ -19,6 +19,7 @@
 	<PropertyGroup>
 		<Authors>D2L Corporation</Authors>
 		<Copyright>Copyright © 2021</Copyright>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/Brightspace/SimpleLogInterface</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/Brightspace/SimpleLogInterface</RepositoryUrl>
