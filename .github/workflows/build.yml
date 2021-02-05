@@ -34,3 +34,16 @@ jobs:
 
           - name: dotnet pack
             run: dotnet pack --configuration Release --no-build
+
+          - run: mkdir dist/
+          - run: cp src/SimpleLogInterface/bin/Release/*.nupkg dist/
+          - run: cp src/SimpleLogInterface.Log4Net/bin/Release/*.nupkg dist/
+          - run: cp src/SimpleLogInterface.NUnit/bin/Release/*.nupkg dist/
+
+          # this is a public project
+          - name: Archive dist/
+            uses: actions/upload-artifact@v1
+            with:
+                name: dist
+                path: dist/
+
